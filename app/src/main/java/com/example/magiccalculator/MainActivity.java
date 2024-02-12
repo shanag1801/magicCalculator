@@ -1,15 +1,11 @@
 package com.example.magiccalculator;
-
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 import android.os.Bundle;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.ImageView;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
     Button btn1, btn2, btn3, newBtn;
     Random rand;
     int num1, num2, num3, num4;
-    TextView[] tvArr = {tv1, tv2, tv3, tv4, tv5, tv6};
-    EditText[] etArr = {et1, et2, et3};
+    TextView[] tvArr;
+    EditText[] etArr;
+    ImageView[] ivArr;
 
 
     @Override
@@ -68,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         for(EditText et: editTexts)
             et.getText().clear();
     }
+    public void clear(ImageView[] imageViews){
+        for(ImageView iv: imageViews)
+            iv.setImageResource(android.R.drawable.checkbox_off_background);
+    }
 
     public void check1(View view) {
         tv3.setText(checkSum(tv1, tv2, et1, iv1));
@@ -86,7 +87,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void newGame(View view) {
+        tvArr = new TextView[]{tv1, tv2, tv3, tv4, tv5, tv6};
+        etArr = new EditText[]{et1, et2, et3};
+        ivArr = new ImageView[]{iv1, iv2, iv3};
         clear(tvArr);
         clear(etArr);
+        clear(ivArr);
     }
 }
