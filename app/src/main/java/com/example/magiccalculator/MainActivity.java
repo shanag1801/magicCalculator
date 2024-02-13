@@ -40,12 +40,15 @@ public class MainActivity extends AppCompatActivity {
         btn2 = findViewById(R.id.button2);
         btn3 = findViewById(R.id.button3);
         newBtn = findViewById(R.id.button4);
+        startGame();
+
+    }
+    public void startGame(){
         rand = new Random();
         num1 = rand.nextInt((99 - 10) + 1) + 10;
         num2 = rand.nextInt((99 - 10) + 1) + 10;
         tv1.setText(String.valueOf(num1));
         tv2.setText(String.valueOf(num2));
-
     }
     public int checkSum(TextView t1, TextView t2, EditText userAnswer, ImageView iv){
         int n1 = Integer.parseInt((String) t1.getText());
@@ -72,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void check1(View view) {
-        tv3.setText(checkSum(tv1, tv2, et1, iv1));
+        tv3.setText(String.valueOf(checkSum(tv1, tv2, et1, iv1)));
         num3 = rand.nextInt((99 - 10) + 1) + 10;
         tv4.setText(String.valueOf(num3));
     }
 
     public void check2(View view) {
-        tv5.setText(checkSum(tv3, tv4, et2, iv2));
+        tv5.setText(String.valueOf(checkSum(tv3, tv4, et2, iv2)));
         num4 = rand.nextInt((99 - 10) + 1) + 10;
         tv6.setText(String.valueOf(num4));
     }
@@ -94,5 +97,6 @@ public class MainActivity extends AppCompatActivity {
         clear(tvArr);
         clear(etArr);
         clear(ivArr);
+        startGame();
     }
 }
